@@ -4,7 +4,7 @@ package Trabajo;
 import java.util.Scanner;
 
 
-public class Class {
+public class Logica {
     private Double totalParcial;
     private Double totalTrabajos;
     
@@ -31,39 +31,44 @@ public class Class {
         System.out.println("Ingrese el numero de trabajos.");
         int nTrabajos=scan.nextInt();
         Double[] notas=new Double[nTrabajos];
-        for(int i=0;i==nTrabajos;i++){
-            System.out.println("Ingrese la nota del trabajo:"+(i++));
+        int i=0;
+                Double Trabajos=0.0;
+        do{
+            System.out.println("Ingrese la nota del trabajo:"+(i+1));
                 notas[i]=scan.nextDouble();
                 Double nota=notas[i];
                 if(nota<0.0 || nota>5.0){
                     System.out.println("Solo se admiten valores entre 0.0 y 5.0");
                     i--;
+                }else{
+                    Trabajos=(Trabajos+notas[i]);
                 }
-        }
-        Double Trabajos=0.0;
-        for(int i=0;i==nTrabajos;i++){
-            Trabajos=(Trabajos+notas[i]);
-        }
-        Trabajos=Trabajos/nTrabajos;
-       this.setTotalTrabajos(Trabajos*0.4);
+                i=i+1;
+        }while(i!=nTrabajos);
+        Trabajos=(Trabajos/nTrabajos)*0.4;
+        System.out.println("El porcentaje de los trabajos es: "+Trabajos);
+       this.setTotalTrabajos(Trabajos);
     }
     
     public void Parcial(){
         Double[] notas=new Double[3];
-        for(int i=0;i==3;i++){
-            System.out.println("Ingrese la nota del parcial "+(i++));
+        int i=0;
+        Double Parcial=0.0;
+        do{
+            System.out.println("Ingrese la nota del parcial:"+(i+1));
                 notas[i]=scan.nextDouble();
                 Double nota=notas[i];
                 if(nota<0.0 || nota>5.0){
                     System.out.println("Solo se admiten valores entre 0.0 y 5.0");
                     i--;
+                }else{
+                  Parcial=(Parcial+notas[i]);  
                 }
-        }
-        Double Parcial=0.0;
-        for(int i=0;i==3;i++){
-            Parcial=(Parcial+notas[i]);
-        }
-       this.setTotalTrabajos((Parcial/3)*0.6);
+                i=i+1;
+        }while(i!=3);
+        Parcial=(Parcial/3)*0.6;
+        System.out.println("El porcentaje de los parciales es: "+Parcial);
+       this.setTotalParcial(Parcial);
     }
     
     public void TotalMateria(){
