@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Productos</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'>
+    <script src='../js/producto.js'></script>
+
+    <!-- Librerias -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ajax jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="inputData">
+            <form onsubmit="save(event)">
+                <fieldset>
+                    <legend>Legend</legend>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Código</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" name="id" id="id" value="">
+                            <input type="text" class="form-control" name="codigo" id="codigo" value=""
+                                placeholder="Ingresar código" required>
+                            </br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombre" id="nombre" value=""
+                                placeholder="Ingresar nombre" required>
+                            </br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Precio</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="precio" id="precio" value=""
+                                placeholder="Ingresar nombre" required>
+                            </br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Cantidad</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="cantidad" id="cantidad" value=""
+                                placeholder="Ingresar nombre" required>
+                            </br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Estado</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" id="estado" required>
+                                <option value="" selected disabled>--Seleccione--</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                            </br>
+                        </div>
+                    </div>
+
+                    <div id="buttonData">
+                        <br>
+                        <button name="btnAgregar" class="btn btn-success">Agragar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+       
+        <div id="outputData">
+            </br>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Estado</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="resultData">
+                    <!-- Aquí llegan los datos de la bd -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    loadData();
+</script>
