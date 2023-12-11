@@ -113,6 +113,7 @@ async function save() {
       success: function (data) {
         $("#id").val(data.id);
         $("#codigo").val(data.codigo);
+        $('#nombre').val(data.nombre);
         $("#pais_id").val(data.pais.id);
         $("#estado").val(data.estado == true ? 1 : 0);
   

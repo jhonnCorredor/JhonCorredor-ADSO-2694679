@@ -114,6 +114,7 @@ async function save() {
       success: function (data) {
         $("#id").val(data.id);
         $("#codigo").val(data.codigo);
+        $('#nombre').val(data.nombre);
         $("#departamento_id").val(data.departamento.id);
         $("#estado").val(data.estado == true ? 1 : 0);
   

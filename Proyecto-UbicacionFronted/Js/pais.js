@@ -1,19 +1,3 @@
-// Manejar el evento de envío del formulario
-document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('.needs-validation');
-    form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-            event.preventDefault(); // Evitar el envío del formulario si hay campos inválidos
-            event.stopPropagation();
-            
-        }
-  
-        form.classList.add('was-validated'); // Mostrar los mensajes de validación
-  
-        // Aquí puedes agregar tu propia lógica de validación personalizada si es necesario
-    });
-  });
-
 async function save() {
     var id_continente = parseInt($("#continente_id").val())
     console.log(id_continente)
@@ -128,6 +112,7 @@ async function save() {
       success: function (data) {
         $("#id").val(data.id);
         $("#codigo").val(data.codigo);
+        $('#nombre').val(data.nombre);
         $("#continente_id").val(data.continente.id);
         $("#estado").val(data.estado == true ? 1 : 0);
   
