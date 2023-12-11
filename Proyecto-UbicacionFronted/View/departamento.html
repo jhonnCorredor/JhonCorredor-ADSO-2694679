@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>departamento</title>
+    <script src='../js/departamento.js'></script>
+
+    <script src="../Js/Acciones/navbar.js"></script>
+
+    <!-- Librerias -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+    <!-- ajax jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+       <script>
+        var sidebarContent = navbarConten();
+        document.write(sidebarContent);
+
+    </script>
+    <div class="container">
+        <div id="inputdata">
+            <form  class="row g-3 needs-validation" novalidate*class="row g-3 needs-validation" novalidate>
+                <fieldset>
+                    <legend>Departamento</legend>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Código</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" name="id" id="id" value="">
+                            <input type="text" class="form-control" name="codigo" id="codigo" value=""
+                            required  placeholder="Ingresar código">
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                              Ingrese el codigo.
+                            </div>
+                            <br>    
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nombre" id="nombre" value=""
+                            required  placeholder="Ingresar nombre">
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                              Ingrese el codigo.
+                            </div>
+                            <br>    
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">País</label>
+                        <div class="col-sm-10">
+                            
+                            <select class="form-select" id="pais_id">
+                                <option value="" selected disabled>--Seleccione--</option>
+                                
+                            </select>
+                            <br>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Estado</label>
+                        <div class="col-sm-10">
+                            
+                            <select class="form-select" id="estado">
+                                <option selected>--Seleccione--</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                            <br>
+                        </div>
+                    </div>
+                </fieldset>
+                <div id="buttonData">
+                    <br>
+                    <button name="btnAgregar" class="btn btn-outline-dark" type="submit" onclick="save()">Agragar</button>
+                </div>
+            </form>
+            
+        </div>
+
+        <div id="outputData">
+        <!-- Aquí llegan los datos de la bd -->
+            </br>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>País</th>
+                        <th>Continente</th>
+                        <th>Estado</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="resultData">
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    loadData();
+    loadPais();
+</script>
