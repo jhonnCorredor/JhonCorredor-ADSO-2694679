@@ -1,38 +1,55 @@
+// Manejar el evento de envío del formulario
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.querySelector('.needs-validation');
+  form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+          event.preventDefault(); // Evitar el envío del formulario si hay campos inválidos
+          event.stopPropagation();
+          
+      }
+
+      form.classList.add('was-validated'); // Mostrar los mensajes de validación
+
+      // Aquí puedes agregar tu propia lógica de validación personalizada si es necesario
+  });
+});
+
 async function save() {
-    var id_continente = parseInt($("#continente_id").val())
-    console.log(id_continente)
-    
-    try {
-      // Esperar a que se resuelva la promesa antes de continuar
-      var continente = await getContinenteId(id_continente);
-      
-      var data = {
-        "codigo": $("#codigo").val(),
-        "nombre": $("#nombre").val(),
-        "continente": continente,
-        "estado": parseInt($("#estado").val()),
-      };
+  var id_continente = parseInt($("#continente_id").val())
+  console.log(id_continente)
   
-      var jsonData = JSON.stringify(data);
-      $.ajax({
-        url: "http://localhost:9000/v1/api/pais",
-        method: "POST",
-        dataType: "json",
-        contentType: "application/json",
-        data: jsonData,
-        success: function(data) {
-          alert("Registro agregado con éxito");
-          loadData();
-          clearData();
-        },
-        error: function(error) {
-          console.error("Error en la solicitud:", error);
-        },
-      });
-    } catch (error) {
-      console.error("Error obteniendo el cliente:", error);
-    }
+  try {
+    // Esperar a que se resuelva la promesa antes de continuar
+    var continente = await getContinenteId(id_continente);
+    
+    var data = {
+      "codigo": $("#codigo").val(),
+      "nombre": $("#nombre").val(),
+      "continente": continente,
+      "estado": parseInt($("#estado").val()),
+    };
+
+    var jsonData = JSON.stringify(data);
+    $.ajax({
+      url: "http://localhost:9000/v1/api/pais",
+      method: "POST",
+      dataType: "json",
+      contentType: "application/json",
+      data: jsonData,
+      success: function(data) {
+        alert("Registro agregado con éxito");
+        loadData();
+        clearData();
+      },
+      error: function(error) {
+        console.error("Error en la solicitud:", error);
+      },
+    });
+  } catch (error) {
+    console.error("Error obteniendo el cliente:", error);
   }
+}
+
   
   
   async function update() {
