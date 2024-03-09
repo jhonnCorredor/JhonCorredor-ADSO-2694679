@@ -18,22 +18,22 @@ public abstract class ABaseEntity {
 	@Column(name = "state", nullable = false)
 	public Boolean state;
 	
-	@Column(name = "created_at", nullable = false)
+	@Column(name = "created_at", nullable = true)
 	public LocalDateTime createdAt;
 	
-	@Column(name = "update_at", nullable = false)
+	@Column(name = "update_at", nullable = true)
 	public LocalDateTime updateAt;
 	
-	@Column(name = "deleted_at", nullable = false)
+	@Column(name = "deleted_at", nullable = true)
 	public LocalDateTime deletedAt;
 	
-	@Column(name = "created_by", nullable = false)
+	@Column(name = "created_by", nullable = true)
 	public Long createdBy;
 	
-	@Column(name = "update_by", nullable = false)
+	@Column(name = "update_by", nullable = true)
 	public Long updateBy;
 	
-	@Column(name = "deleted_by", nullable = false)
+	@Column(name = "deleted_by", nullable = true)
 	public Long deletedBy;
 
 	public Long getId() {
