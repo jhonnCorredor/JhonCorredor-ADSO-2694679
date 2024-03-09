@@ -31,6 +31,5 @@ public class UserService extends ABaseService<User> implements IUserService{
 	@Override
 	public List<IUserDto> getList() {
 		return repository.getList();
-	}
-
+	}	
 }

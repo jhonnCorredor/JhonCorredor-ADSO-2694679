@@ -3,6 +3,7 @@ package com.sena.servicesecurity.IService;
 import java.util.List;
 import java.util.Optional;
 
+import com.sena.servicesecurity.DTO.IModuleDto;
 import com.sena.servicesecurity.Entity.ABaseEntity;
 
 /**
@@ -55,4 +56,6 @@ public interface IBaseService<T extends ABaseEntity> {
      * @throws Exception If an error occurs while deleting the entity.
      */
     void delete(Long id) throws Exception;
+    
+    
 }

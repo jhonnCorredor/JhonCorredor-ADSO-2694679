@@ -111,5 +111,7 @@ public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>> {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(new ApiResponseDto<T>(e.getMessage(), null, false));
         }
-    }
+    }  
+    
+    
 }

@@ -1,8 +1,11 @@
 package com.sena.servicesecurity.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sena.servicesecurity.DTO.IUserRoleDto;
 import com.sena.servicesecurity.Entity.UserRole;
 import com.sena.servicesecurity.IRepository.IBaseRepository;
 import com.sena.servicesecurity.IRepository.IUserRoleRepository;
@@ -18,5 +21,10 @@ public class UserRoleService extends ABaseService<UserRole> implements IUserRole
 	
 	@Autowired
 	private IUserRoleRepository repository;
+	
+	@Override
+	public List<IUserRoleDto> getList() {
+		return repository.getList();
+	}	
 
 }

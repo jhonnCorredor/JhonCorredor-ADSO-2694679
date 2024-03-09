@@ -24,7 +24,7 @@ public class RoleController extends ABaseController<Role,IRoleService>{
 	@GetMapping("/list")
     public ResponseEntity<ApiResponseDto<List<IRoleDto>>> show() {
         try {
-        	List<IRoleDto> entity = service.getList();
+            List<IRoleDto> entity = service.getList();
             return ResponseEntity.ok(new ApiResponseDto<List<IRoleDto>>("Registro encontrado", entity, true));
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(new ApiResponseDto<List<IRoleDto>>(e.getMessage(), null, false));

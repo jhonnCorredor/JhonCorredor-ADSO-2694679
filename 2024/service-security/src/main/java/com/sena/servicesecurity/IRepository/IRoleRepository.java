@@ -12,13 +12,24 @@ import com.sena.servicesecurity.Entity.Role;
 public interface IRoleRepository extends IBaseRepository<Role, Long>{
 
 	@Query(value = " SELECT "
-			+ " id,	"
-			+ " name, "
+			+ "	id,"
+			+ "	name as role,"
 			+ " description, "
 			+ " state "
-			+ "FROM "
-			+ "	role  "
-			+ "WHERE "
-			+ " deleted_at IS NULL  ", nativeQuery = true)
+			+ "	FROM "
+			+ "	role "
+			+ "	WHERE "
+			+ " deleted_at IS NULL", nativeQuery = true)
 	List<IRoleDto> getList();
+	
+	@Query(value = " SELECT "
+			+ "	id,"
+			+ "	name as role,"
+			+ " description, "
+			+ " state "
+			+ "	FROM "
+			+ "	role "
+			+ "	WHERE "
+			+ " deleted_at IS NULL", nativeQuery = true)
+	List<Object[]> getDList();
 }

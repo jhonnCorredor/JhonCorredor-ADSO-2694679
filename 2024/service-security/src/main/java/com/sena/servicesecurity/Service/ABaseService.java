@@ -18,9 +18,10 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
 
     /**
      * Retrieves the repository associated with the entity.
+     * @param <U>
      * @return The repository associated with the entity.
      */
-    protected abstract IBaseRepository<T, Long> getRepository();
+    protected abstract  IBaseRepository<T, Long> getRepository();
     
     /**
      * Retrieves all entities.
@@ -120,4 +121,7 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
 
         getRepository().save(entityUpdate);
     }
+
+    
+  
 }

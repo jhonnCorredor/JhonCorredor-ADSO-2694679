@@ -24,6 +24,9 @@ public class PersonService extends ABaseService<Person> implements IPersonServic
 
 	@Override
 	public List<IPersonDto> getList() {
+		
 		return repository.getList();
-	}	
+	}
+	
+	
 }

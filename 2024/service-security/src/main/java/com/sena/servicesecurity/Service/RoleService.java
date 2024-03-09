@@ -25,6 +25,5 @@ public class RoleService extends ABaseService<Role> implements IRoleService{
 	@Override
 	public List<IRoleDto> getList() {
 		return repository.getList();
-	}
-
+	}	
 }
