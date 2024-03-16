@@ -27,7 +27,7 @@ public class UserController extends ABaseController<User,IUserService>{
     public ResponseEntity<ApiResponseDto<Optional<IUserDto>>> show(@RequestParam String username, @RequestParam String password) {
         try {
             Optional<IUserDto> entity = service.getLogin(username, password);
-            return ResponseEntity.ok(new ApiResponseDto<Optional<IUserDto>>("Registro encontrado", entity, true));
+            return ResponseEntity.ok(new ApiResponseDto<LI<IUserDto>>("Registro encontrado", entity, true));
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(new ApiResponseDto<Optional<IUserDto>>(e.getMessage(), null, false));
         }
