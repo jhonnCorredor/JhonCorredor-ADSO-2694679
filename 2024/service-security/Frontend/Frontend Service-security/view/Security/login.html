@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Videojuegos & Desarrollo">
+    <meta name="description" content="Ejemplo de formulario de acceso basado en HTML5 y CSS">
+    <meta name="keywords" content="login,formulariode acceso html">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/assets/css/login.css">
+    
+      <!-- jQuery -->
+  <script src="ruta/a/jquery.min.js"></script>
+  
+  <!-- DataTables JS -->
+  <script src="ruta/a/jquery.dataTables.min.js"></script>
+  
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="ruta/a/dataTables.bootstrap.min.css">
+  
+  
+</head>
+<body class="bodyLo">
+    <div id="contenedor" >
+        <div id="contenedorcentrado">
+            <div id="login">
+                <form class="needs-validation" id="loginform" novalidate>
+                    <label for="USERNAME">Usuario</label>
+                    <input type="text" placeholder="USERNAME" id="USERNAME" name="USERNAME" required>
+                    <div class="invalid-feedback">Por favor, ingrese un nombre de usuario.</div>
+                    <label for="PASSWORD">Contraseña</label>
+                    <input type="password" placeholder="PASSWORD" id="PASSWORD" name="PASSWORD" required>
+                    <div class="invalid-feedback">Por favor, ingrese una contraseña.</div>
+                    <div id="buttonData">
+                        <br>
+                        <button name="btnAgregar" onclick="login()" type="button" class="btn btn-success">Iniciar sesión</button>
+                    </div>
+                </form>
+            </div>
+            <div id="derecho">
+                <div class="titulo">Bienvenido</div>
+                <hr>
+                <div class="pie-form">
+                    <a href="#">¿Perdiste tu contraseña?</a>
+                    <button></button>
+                    <a href="./view/record.html">¿No tienes cuenta? Regístrate</a>
+                    <hr>
+                    <a href="#">« Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="/js/Security/login.js"></script>
+ <script src="/view/navbar.html"></script>   
+</body>
+</html>
