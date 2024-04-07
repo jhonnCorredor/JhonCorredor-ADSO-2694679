@@ -75,3 +75,14 @@
   display: inline;
   width: 92px; 
 }
+
+.container-document{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px;
+
+}
+.item--document{
+  margin-right: 25px;
+}

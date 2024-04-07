@@ -227,7 +227,13 @@ function loadData() {
       
               // Inicializar el autocompletado en el campo de entrada de texto
               $("#person_id").autocomplete({
-                source: persons,
+                source: function(request, response) {
+                  var results = $.ui.autocomplete.filter(persons, request.term);
+                  if (!results.length) {
+                    results = [{ label: 'No se encontraron resultados', value: null }];
+                  }
+                  response(results);
+                },
                 select: function(event, ui) {
                   // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
                   $("#selected_person_id").val(ui.item.value);
@@ -263,7 +269,13 @@ function loadCompany() {
 
                 // Inicializar el autocompletado en el campo de entrada de texto
                 $("#company_id").autocomplete({
-                    source: companies,
+                  source: function(request, response) {
+                    var results = $.ui.autocomplete.filter(companies, request.term);
+                    if (!results.length) {
+                      results = [{ label: 'No se encontraron resultados', value: null }];
+                    }
+                    response(results);
+                  },
                     select: function(event, ui) {
                         // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
                         $("#selected_company_id").val(ui.item.value);
@@ -300,7 +312,13 @@ function loadPosition() {
 
                 // Inicializar el autocompletado en el campo de entrada de texto
                 $("#position_id").autocomplete({
-                    source: positions,
+                  source: function(request, response) {
+                    var results = $.ui.autocomplete.filter(positions, request.term);
+                    if (!results.length) {
+                      results = [{ label: 'No se encontraron resultados', value: null }];
+                    }
+                    response(results);
+                  },
                     select: function(event, ui) {
                         // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
                         $("#selected_position_id").val(ui.item.value);

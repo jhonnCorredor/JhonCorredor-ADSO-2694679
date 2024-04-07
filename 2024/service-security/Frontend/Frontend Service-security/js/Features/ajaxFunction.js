@@ -17,3 +17,15 @@ $(document).ready(function() {
       }
     });
   });
+
+var documentInput = document.getElementById('document_id');
+
+// Agregar un evento para capturar la entrada del teclado
+documentInput.addEventListener('input', function(event) {
+  var currentValue = event.target.value;
+  var cleanedValue = currentValue.replace(/\D/g, '');
+  var limitedValue = cleanedValue.slice(0, 10);
+  
+
+  event.target.value = limitedValue;
+});

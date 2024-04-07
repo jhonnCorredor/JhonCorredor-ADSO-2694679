@@ -11,7 +11,7 @@ import com.sena.servicesecurity.IRepository.IBaseRepository;
 import com.sena.servicesecurity.IRepository.Security.IPersonRepository;
 import com.sena.servicesecurity.IService.Security.IPersonService;
 import com.sena.servicesecurity.Service.ABaseService;
-import com.sena.servicesecurity.Utils.Direction;
+import com.sena.servicesecurity.Utils.Nomenclature;
 
 
 @Service
@@ -31,10 +31,34 @@ public class PersonService extends ABaseService<Person> implements IPersonServic
 	}
 
 	@Override
-	public Direction[] getDirections() {
+	public Nomenclature[] getDirections() {
 		// TODO Auto-generated method stub
-		return Direction.values();
+		return Nomenclature.values();
+	}
+
+	@Override
+	public List<IPersonDto> getTypeDocument(String type) {
+		return repository.getTypeDocument(type);
 	}
 	
+	@Override
+	public Person getValidation(Person entity) throws Exception{
+		String document=entity.getDocument();
+		String email = entity.getEmail();
+		
+		IPersonDto Persondocument =repository.getValidationDocument(document);
+		IPersonDto PersonEmail =repository.getValidationEmail(email);
+		
+		if(Persondocument == null) {
+			if(PersonEmail ==null) {
+				return this.save(entity);
+			}else {
+				throw new Exception("Dato de email ya registrado");
+			}
+			
+		}else {
+			throw new Exception("Dato de document ya registrado");
+		}
+	}
 	
 }

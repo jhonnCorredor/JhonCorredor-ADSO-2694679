@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro</title>
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-Xtj7l5tj5X+u+6M3xNc5nqyM7oRx3lF+oZImhX1z1MQrXlTPIrxA5VvN1cH8ZmOHs9VqAT0ZdQ97xtqrgVxE3g=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <form class="row g-3 needs-validation" novalidate*class="row g-3 needs-validation"  novalidate>
+        <fieldset class="formulario">
+            <legend>Libro</legend>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">codigo</label>
+                <div class="col-sm-10">
+                    <input type="hidden" name="id" id="id" value="">
+                    <input type="text" class="form-control" name="codigo" id="codigo" value="" required
+                        placeholder="ingresar codigo ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Ingrese el codigo.
+                    </div>
+                    <br>
+                </div>
+
+
+                <label class="col-sm-2 col-form-label">titulo</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="title " id="title" value="" required
+                        placeholder="ingresar direccion ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Ingrese el codigo.
+                    </div>
+                    <br>
+                </div>
+
+                <label class="col-sm-2 col-form-label" for="person_id">Autor: </label>
+                <div class="col-sm-10">
+                    <input type="hidden" id="selected_autor_id" name="selected_autor_id" value="">
+                    <input type="text" list="person_id" class="form-control" name="autor_id" id="autor_id">
+
+                </div>
+
+                <label class="col-sm-2 col-form-label" for="person_id">Categoria: </label>
+                <div class="col-sm-10">
+                    <input type="hidden" id="selected_categoria_id" name="selected_categoria_id" value="">
+                    <input type="text" list="categoria_id" class="form-control" name="categoria_id" id="categoria_id">
+
+                </div>
+
+                <label class="col-sm-2 col-form-label">Estado</label>
+                <div class="col-sm-10">
+
+                    <select class="form-select" id="estado">
+                        <option selected>--select--</option>
+                        <option value="1">activo</option>
+                        <option value="0">inactivo</option>
+                    </select>
+                    <br>
+                </div>
+
+                <button name="btnAgregar" class="btn btn-primary" type="button" onclick="save()">Agragar</button>
+    </form>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">codigo</th>
+                <th scope="col">title</th>
+                <th scope="col">autor</th>
+                <th scope="col">categoria</th>
+                <th scope="col">Estado</th>
+                <th scope="col">acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider" id="resultData">
+
+
+        </tbody>
+    </table>
+</body>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="/js/libro.js"></script>
+<script src="/js/Features/ajaxFunction.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+    loadAutor();
+    loadCategoria();
+    loadData();
+</script>
+
+</html>

@@ -16,8 +16,7 @@ function save() {
       "dateOfBirth": $("#dateOfBirth").val(),
       "gender": $("#gender").val(),
       "address": $("#address").val() + ' No ' + $("#numeral").val() + ' - ' + $("#numeral2").val()  +' - ' + $("#description").val(),
-      "ubication": $("#city_id").val(),
-      "city": {
+      "municipality": {
          "id": selectedCityId
       },
       "state": true
@@ -26,7 +25,7 @@ function save() {
 
  
     $.ajax({
-      url: "http://localhost:9000/service-security/v1/api/person",
+      url: "http://localhost:9000/service-security/v1/api/person/validationSave",
       method: "POST",
       dataType: "json",
       contentType: "application/json",
@@ -41,7 +40,7 @@ function save() {
         loadData();
       },
       error: function(error) {
-        alert(`La persona: ${$("#person_id").val()} ya cuenta con una cuenta de usuario`);
+        alert(error.responseJSON.message);
         //console.log($("#person_id").val());
       },
     });
@@ -59,7 +58,7 @@ function save() {
 
 
 function loadCity() {
-  console.log("ejecutando loadCity");
+  console.log("Ejecutando loadCity");
   $.ajax({
     url: "http://localhost:9000/service-security/v1/api/municipality",
     method: "GET",
@@ -75,7 +74,13 @@ function loadCity() {
 
         // Inicializar el autocompletado en el campo de entrada de texto
         $("#city_id").autocomplete({
-          source: cities,
+          source: function(request, response) {
+            var results = $.ui.autocomplete.filter(cities, request.term);
+            if (!results.length) {
+              results = [{ label: 'No se encontraron resultados', value: null }];
+            }
+            response(results);
+          },
           select: function (event, ui) {
             // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
             $("#selected_city_id").val(ui.item.value);
@@ -95,6 +100,7 @@ function loadCity() {
     },
   });
 }
+
 
 
 
@@ -142,7 +148,7 @@ function loadData() {
                   <td>` + item.dateOfBirth + `</td>
                   <td>` + item.gender + `</td>
                   <td>` + item.address + `</td>
-                  <td>` + /*item.municipality.name*/ + `</td>
+                  <td>` + item.municipality.name + `</td>
                   <td>` + (item.state == true ? "Activo" : "Inactivo") + `</td>
                   <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="findById(${item.id})"> <img src="/assets/icon/pencil-square.svg" > </button>
                   <button type="button" class="btn btn-secundary" onclick="deleteById(${item.id})"> <img src="/assets/icon/trash3.svg" > </button></td>
@@ -193,8 +199,7 @@ function update() {
       "dateOfBirth": $("#dateOfBirth").val(),
       "gender": $("#gender").val(),
       "address": $("#address").val() + ' No ' + $("#numeral").val() + ' - ' + $("#numeral2").val()  +' - ' + $("#description").val(),
-      "ubication": $("#city_id").val(),
-      "city": {
+      "municipality": {
          "id": selectedCityId
       },
       "state": true
@@ -281,4 +286,26 @@ function clearData() {
   $("#city_id").val("");
  
   $("#estado").val("");
+}
+
+function loadTypeDocument() {
+  $.ajax({
+      url: "http://localhost:9000/service-security/v1/api/enum/type-document",
+      method: "GET",
+      dataType: "json",
+      success: function (response) {
+          console.log(response);
+          var html = "";
+              response.forEach(function (item) {
+                  // Construir el HTML para cada objeto
+                  html += `<option value="${item}">${item}</option>`;
+              });
+              $("#type_document").html(html);
+              $("#t_document").html(html);
+      },
+      error: function (error) {
+          // Función que se ejecuta si hay un error en la solicitud
+          console.error("Error en la solicitud:", error);
+      },
+  });
 }

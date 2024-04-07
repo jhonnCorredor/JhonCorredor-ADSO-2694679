@@ -1,0 +1,253 @@
+INSERT INTO service_security.continent (state, code, description, name)
+VALUES (true, 'NA', 'North America', 'North America');
+
+
+INSERT INTO service_security.country (state, continent_id, id, code, description, name)
+VALUES (true, 1, 1, 'US', 'United States of America', 'United States');
+
+INSERT INTO service_security.status (state, country_id, id, code, description, name)
+VALUES (true, 1, 1, 'ACTIVE', 'Active Status', 'Active');
+
+
+
+INSERT INTO service_security.municipality (state, id, status_id, code, description, name)
+VALUES (true, 1, 1, 'NYC', 'New York City Municipality', 'New York City');
+
+
+INSERT INTO service_security.location (state, id, municipality_id, code, description, name)
+VALUES (true, 1, 1, 'NYC', 'New York City', 'New York City');
+
+
+
+
+
+INSERT INTO service_security.module
+(state, id, description, name, route)
+VALUES
+('', 1, 'Module the Security', 'Security', '/security'),
+('', 2, 'Módule the Parameter', 'Parameter', '/parameter'),
+('', 3, 'Módule the Operational', 'Operational', '/operational');
+
+
+INSERT INTO service_security.role
+(state, id, description, name)
+VALUES
+('', 1, 'Role the administrator', 'administrator'),
+('', 2, 'Role the user ', 'user');
+
+
+
+
+INSERT INTO service_security.view
+(
+state,
+description,
+name,
+route)
+VALUES
+
+(true,'view the person','person','../view/Security/person.html'),
+(true,'view the role','role','../view/Security/role.html'),
+(true,'view the module','module','../view/Security/module.html'),
+(true,'view the user','user','../view/Security/user.html'),
+(true,'view the view','view','../view/Security/view.html'),
+
+
+
+(true,'view the location','location','../view/Parameter/location.html'),
+(true,'view the country','country','../view/Parameter/country.html'),
+(true,'view the continent','continent','../view/Parameter/continent.html'),
+(true,'view the neighborhood','neighborhood','../view/Parameter/neighborhood.html'),
+(true,'view the Municipality','Municipality','../view/Parameter/municipality.html'),
+(true,'view the state','state','../view/Parameter/state.html'),
+
+
+(true,'view the company','company','../view/Operational/company.html'),
+(true,'view the contract','contract','../view/Operational/contract.html'),
+(true,'view the employed','employed','../view/Operational/employed.html'),
+(true,'view the position','position','../view/Operational/position.html');
+(true,'view the client','client','../view/Operational/client.html');
+
+
+
+INSERT INTO service_security.module_view
+(
+
+module_id,
+view_id)
+VALUES
+(1,1),
+(1,2),
+(1,3),
+(1,4),
+(1,5),
+
+(2,6),
+(2,7),
+(2,8),
+(2,9),
+(2,10),
+(2,11),
+
+(3,12),
+(3,13),
+(3,14),
+(3,15);
+
+
+
+INSERT INTO service_security.module_role
+(module_id, role_id)
+VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(2, 2),
+(3, 2);
+
+
+
+
+
+INSERT INTO service_security.person (
+    date_of_birth,
+    state,
+    id,
+    document,
+    gender,
+    phone,
+    email,
+    first_name,
+    last_name,
+    type_document,
+    address,
+    municipality_id
+)
+VALUES (
+    '1990-05-15',
+    true,
+    1,
+    '1234567890',
+    'Male',
+    '123-456-7890',
+    'john@example.com',
+    'John',
+    'Doe',
+    'Driver\s License',
+    '123 Main Street',
+    1
+);
+
+
+
+
+
+INSERT INTO service_security.user
+(
+
+state,
+
+password,
+username,
+person_id)
+VALUES
+(true,"1234","drago",1
+);
+
+
+
+
+INSERT INTO service_security.user_role
+(
+
+role_id,
+user_id)
+VALUES
+(
+1,
+1);
+
+
+
+
+INSERT INTO service_security.company
+(
+state,
+address,
+email,
+nit,
+phone,
+rs,
+web,
+municipality_id
+)
+VALUES 
+(
+true, -- Estado de la compañía
+'Calle Principal 456', -- Dirección de la compañía
+'empresa@example.com', -- Correo electrónico de la compañía
+'123456789', -- NIT de la compañía
+'555-5678', -- Número de teléfono de la compañía
+'Razón Social S.A.', -- Razón social de la compañía
+'www.ejemplo.com', -- Sitio web de la compañía
+1 -- ID de la ciudad donde se encuentra la compañía
+);
+
+
+
+INSERT INTO service_security.position
+(
+state,
+code,
+name
+)
+VALUES 
+(
+true, -- Estado del cargo
+'POS001', -- Código del cargo
+'Guardnlkia de Seguridad' -- Nombre del cargo
+);
+
+
+INSERT INTO service_security.employed
+(
+state,
+code,
+company_id,
+person_id,
+position_id
+)
+VALUES 
+(
+true, -- Estado del empleado
+'EMP001', -- Código del empleado
+1, -- ID de la compañía a la que pertenece el empleado
+1, -- ID de la persona que representa al empleado
+1 -- ID del cargo/posición del empleado
+);
+
+INSERT INTO service_security.contract
+(
+date_ending,
+date_start,
+salary,
+state,
+company_id,
+employed_id,
+code,
+object)
+VALUES
+(
+
+'2024-12-31', -- Fecha de finalización del contrato (Año-Mes-Día)
+'2024-03-23', -- Fecha de inicio del contrato (Año-Mes-Día)
+1000, -- Salario
+true,
+1, -- ID de la compañía
+1, -- ID del empleado
+
+'CONTRACT001',
+'Prestación de servicios de seguridad'
+
+
+);

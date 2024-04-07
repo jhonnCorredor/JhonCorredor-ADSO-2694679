@@ -4,4 +4,6 @@ public interface IPersonDto extends IGenericDto{
 
 
 	String getPerson();
+	String getType_document();
+	String getDocument();
 }

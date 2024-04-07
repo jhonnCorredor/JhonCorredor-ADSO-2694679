@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+   <script src="/Frontend Service-security/js/Features/cdn.js"></script>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/estyle.css">
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Xtj7l5tj5X+u+6M3xNc5nqyM7oRx3lF+oZImhX1z1MQrXlTPIrxA5VvN1cH8ZmOHs9VqAT0ZdQ97xtqrgVxE3g==" crossorigin="anonymous" />
+
+    <title>
+        Customer
+      </title>
+</head>
+<body>
+
+ 
+ 
+<div class="container">
+<!-- <script src="/Frontend Service-security/js/Features/Butonn.js"></script> -->
+
+  <div id="inputData">
+      <form class="row g-3 needs-validation" novalidate>
+          <fieldset>
+             
+
+
+                  <label class="col-sm-2 col-form-label">Data</label>
+                  <div class="col-sm-10">
+                              <select class="form-control1" id="TypeDocument" name="TypeDocument"></select>
+                              Num Document
+                                   <input type="hidden" id="selected_document_id" name="selected_document_id"
+                                       value="">
+                                   <input type="text"  list="document_id" class="form-control1" name="document_id"
+                                       id="document_id">
+                                    First Name
+                                       <input type="hidden" id="selected_firsName_id" name="selected_firsName_id"
+                                       value="">
+                                   <input type="text"  list="firsName_id" class="form-control1" name="firsName_id"
+                                       id="firsName_id">
+                    
+                                       <!-- <button class="form-control1" id="searchButton" type="button"  onclick="add()"> +</button> -->
+                                       <button type="button" class="Headboard btn btn-primary form-control1"  data-bs-toggle="modal" id="searchButton" onclick=""  data-bs-target="#staticBackdrop">
+                                        Agregar
+                                      </button>
+                                      
+                          </div>       
+
+
+  
+  <!-- Modal -->
+  <legend>Customer</legend>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="width: 140%; height: 150%; ">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Registro</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+              <div class="container">
+                  <div id="inputdata">
+                      <form class="row g-3 needs-validation" novalidate*class="row g-3 needs-validation" novalidate>
+                          <fieldset class="formulario">
+                              <legend>Person</legend>
+                              <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">first name</label>
+                                  <div class="col-sm-10">
+                                      <input type="hidden" name="id" id="id" value="">
+                                      <input type="text" class="form-control" name="firstName" id="firstName" value=""
+                                      required  placeholder="enter the first name ">
+                                      <div class="valid-feedback">
+                                          Looks good!
+                                      </div>
+                                      <div class="invalid-feedback">
+                                          Ingrese el codigo.
+                                      </div>
+                            <br>    
+                          </div>
+                          
+                          <label class="col-sm-2 col-form-label">last name</label>
+                          <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="lastName" id="lastName" value=""
+                                      required  placeholder="enter the  last name">
+                                      <div class="valid-feedback">
+                                          Looks good!
+                                      </div>
+                                      <div class="invalid-feedback">
+                                          Ingrese el codigo.
+                                      </div>
+                                      <br>    
+                                  </div>
+
+                                  
+                                  <label class="col-sm-2 col-form-label">Type document</label>
+                                  <div class="col-sm-10">
+                                              <select class="form-select" id="t_document"></select>
+                                              <div class="valid-feedback">
+                                                  Looks good!
+                                              </div>
+                                              <div class="invalid-feedback">
+                                                  Ingrese el codigo.
+                                              </div>
+                                              <br>
+                                          </div>   
+                                          
+                                          <label class="col-sm-2 col-form-label">Document</label>
+                                  <div class="col-sm-10">
+                                              <input type="text" maxlength="10" class="form-control" name="document" id="document" value=""
+                                              required  placeholder="enter the document">
+                                              <div class="valid-feedback">
+                                                  Looks good!
+                                              </div>
+                                              <div class="invalid-feedback">
+                                                  Ingrese el codigo.
+                                              </div>
+                                              <br>    
+                                          </div>
+
+                                  <label class="col-sm-2 col-form-label">email</label>
+                                  <div class="col-sm-10">
+                                              <input type="email" class="form-control" name="email" id="email" value=""
+                                              required  placeholder="enter the  email">
+                                              <div class="valid-feedback">
+                                                  Looks good!
+                                              </div>
+                                              <div class="invalid-feedback">
+                                                  Ingrese el codigo.
+                                              </div>
+                                              <br>    
+                                          </div>
+
+                                          <label class="col-sm-2 col-form-label">phone</label>
+                                          <div class="col-sm-10">
+                                                      <input type="text" class="form-control" name="phone" id="phone" value=""
+                                                      required  placeholder="enter the phone">
+                                                      <div class="valid-feedback">
+                                                          Looks good!
+                                                      </div>
+                                                      <div class="invalid-feedback">
+                                                          Ingrese el codigo.
+                                                      </div>
+                                                      <br>    
+                                                  </div>
+                                            
+                                          <label class="col-sm-2 col-form-label">dateOfBirth</label>
+                                          <div class="col-sm-10">
+                                              <input type="date" class="form-control" name="date_of_birth" id="dateOfBirth" value="" placeholder="Date of birth">
+                                          
+                                                      <div class="valid-feedback">
+                                                          Looks good!
+                                                      </div>
+                                                      <div class="invalid-feedback">
+                                                          Ingrese el codigo.
+                                                      </div>
+                                                      <br>    
+                                                  </div>    
+                                          
+                                                  <label class="col-sm-2 col-form-label">gender</label>
+                                          <div class="col-sm-10">
+                                              <select class="form-select" id="gender"></select> 
+                                              <div class="valid-feedback">
+                                                  Looks good!
+                                              </div>
+                                              <div class="invalid-feedback">
+                                                  Ingrese el codigo.
+                                              </div>
+                                              <br>
+                                          </div>     
+                                                          
+                                                   
+                                          <label class="col-sm-2 col-form-label">address</label>
+                                          <div class="col-sm-10">
+                                                      <select class="form-control1" id="address" name="address"></select>
+                                                      No
+                                                      <input type="number" class="form-control1" name="numeral" id="numeral"
+                                                       value=""required  placeholder="enter #">
+                                                       -
+                                                       <input type="text" class="form-control1" name="numeral2" id="numeral2"
+                                                       value=""required  placeholder="enter #">
+
+                                                      -
+                                                       <input type="text" class="form-control1" name="description" id="description" 
+                                                       value=""required  placeholder="enter Description">  
+                                                      
+                                                      <div class="valid-feedback">
+                                                          Looks good!
+                                                      </div>
+                                                      <div class="invalid-feedback">
+                                                          Ingrese el codigo.
+                                                      </div>
+                                                      <br>    
+                                                  </div>       
+                                  
+                                
+
+                                           <label class="col-sm-2 col-form-label" for="city_id">city: </label>
+                                          <div class="col-sm-10">
+                                              <input type="hidden" id="selected_city_id" name="selected_city_id"
+                                                  value="">
+                                              <input type="text" list="city_id" class="form-control" name="city_id"
+                                                  id="city_id">
+                                  
+                                  </div>
+            
+                          </fieldset>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                          <button type="button" name="btnCloced" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearData()">Close</button>
+                          <br>
+                          <button name="btnAgregar" class="btn btn-primary" type="button" onclick="save()" data-bs-dismiss="modal">Agragar</button>
+                      </div>
+                  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <table  class="table table-hover">
+        <thead>
+            <tr class="table-dark">
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Emeil</th>
+            <th scope="col">phone</th>
+          
+            <th scope="col">State</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider" id="resultData">
+            
+            
+        </tbody>
+      </table>
+  
+
+    </div>
+
+ 
+  <script type="application/javascript" src="/Frontend Service-security/js/Operational/customer.js"></script>
+  <script src="/Frontend Service-security/js/Features/ajaxFunctions.js"></script>
+
+  </script>
+
+  <script>
+    loadPerson();
+        loadData();
+        loadDocuemt();
+        loadCity();
+        </script>
+    
+
+</body>
+</html>

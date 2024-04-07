@@ -233,7 +233,13 @@ function save() {
 
                 // Inicializar el autocompletado en el campo de entrada de texto
                 $("#company_id").autocomplete({
-                    source: companies,
+                  source: function(request, response) {
+                    var results = $.ui.autocomplete.filter(companies, request.term);
+                    if (!results.length) {
+                      results = [{ label: 'No se encontraron resultados', value: null }];
+                    }
+                    response(results);
+                  },
                     select: function(event, ui) {
                         // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
                         $("#selected_company_id").val(ui.item.value);
@@ -270,7 +276,13 @@ function loadEmploy() {
 
                 // Inicializar el autocompletado en el campo de entrada de texto
                 $("#empleado_id").autocomplete({
-                    source: employees,
+                  source: function(request, response) {
+                    var results = $.ui.autocomplete.filter(employees, request.term);
+                    if (!results.length) {
+                      results = [{ label: 'No se encontraron resultados', value: null }];
+                    }
+                    response(results);
+                  },
                     select: function(event, ui) {
                         // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
                         $("#selected_empleado_id").val(ui.item.value);

@@ -68,7 +68,13 @@ function save() {
       
               // Inicializar el autocompletado en el campo de entrada de texto
               $("#person_id").autocomplete({
-                source: persons,
+                source: function(request, response) {
+                  var results = $.ui.autocomplete.filter(persons, request.term);
+                  if (!results.length) {
+                    results = [{ label: 'No se encontraron resultados', value: null }];
+                  }
+                  response(results);
+                },
                 select: function(event, ui) {
                   // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
                   $("#selected_person_id").val(ui.item.value);

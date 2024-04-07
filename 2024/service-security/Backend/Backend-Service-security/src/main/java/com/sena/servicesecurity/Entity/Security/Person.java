@@ -3,6 +3,7 @@ package com.sena.servicesecurity.Entity.Security;
 import java.time.LocalDate;
 
 import com.sena.servicesecurity.Entity.ABaseEntity;
+import com.sena.servicesecurity.Entity.Parameter.Municipality;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,24 +37,15 @@ public class Person extends ABaseEntity {
     @Column(name = "address", length = 100, nullable = false)
     private String address;
     
- 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "municipality_id", nullable = false)
+    private Municipality municipality;
     
     @Column(name = "type_document", length = 50, nullable = false)
     private String typeDocument;
     
     @Column(name = "document", length = 10, nullable = false, unique=true)
     private String Document;
-    
-    @Column(name = "ubication", nullable = false)
-    private String ubication;
-
-	public String getUbication() {
-		return ubication;
-	}
-
-	public void setUbication(String ubication) {
-		this.ubication = ubication;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -125,6 +117,14 @@ public class Person extends ABaseEntity {
 
 	public void setDocument(String document) {
 		Document = document;
+	}
+
+	public Municipality getMunicipality() {
+		return municipality;
+	}
+
+	public void setMunicipality(Municipality municipality) {
+		this.municipality = municipality;
 	}  
 	
 }

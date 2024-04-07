@@ -1,6 +1,4 @@
 function save() {
-  
-  console.log("ejecutando save");
   try {
     var selectedCityId = parseInt($("#selected_city_id").val());
     if (isNaN(selectedCityId) || selectedCityId === null) {
@@ -33,7 +31,7 @@ function save() {
 
 
     $.ajax({
-      url: "http://localhost:9000/service-security/v1/api/person",
+      url: "http://localhost:9000/service-security/v1/api/person/validationSave",
       method: "POST",
       dataType: "json",
       contentType: "application/json",
@@ -48,7 +46,7 @@ function save() {
         loadData();
       },
       error: function(error) {
-        alert(`La persona: ${$("#person_id").val()} ya cuenta con una cuenta de usuario`);
+        alert(error.responseJSON.message);
       },
     });
   } catch (error) {
@@ -119,7 +117,13 @@ function loadCity() {
 
         // Inicializar el autocompletado en el campo de entrada de texto
         $("#city_id").autocomplete({
-          source: cities,
+          source: function(request, response) {
+            var results = $.ui.autocomplete.filter(cities, request.term);
+            if (!results.length) {
+              results = [{ label: 'No se encontraron resultados', value: null }];
+            }
+            response(results);
+          },
           select: function (event, ui) {
             // Al seleccionar un elemento del autocompletado, guarda el ID en un campo oculto
             $("#selected_city_id").val(ui.item.value);
