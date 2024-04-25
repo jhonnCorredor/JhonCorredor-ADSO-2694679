@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/estyle.css">
+</head>
+<body>
+    
+    <div class="container">
+
+  
+    <!-- Button trigger modal -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="140" height="114" fill="green" class="bi bi-cloud-plus" viewBox="0 0 16 16" style="position: relative; float: right; height: 43px;" alt="Agregar" class="new" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
+        <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+    </svg>
+    
+    
+    <!-- Modal -->
+    <legend>State</legend>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="width: 140%; height: 150%; ">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Record</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearData();"></button>
+                </div>
+                <div class="modal-body" >
+                    <div class="container">
+                        <div id="inputdata">
+                            <form class="row g-3 needs-validation" novalidate*class="row g-3 needs-validation" novalidate>
+                                <fieldset class="formulario">
+                                    <legend>State</legend>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="hidden" name="id" id="id" value="">
+                                            <input type="text" class="form-control" name="nombre" id="nombre" value=""
+                                            required  placeholder="Ingresar nombre">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese el codigo.
+                                            </div>
+                                  <br>    
+                                </div>
+                                
+                                <label class="col-sm-2 col-form-label">Code</label>
+                                <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="codigo" id="codigo" value=""
+                                            required  placeholder="Ingresar codigo">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese el codigo.
+                                            </div>
+                                            <br>    
+                                        </div>
+
+                                        <label class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="descripcion" id="descripcion" value=""
+                                        required  placeholder="Ingresar codigo">
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Ingrese el codigo.
+                                        </div>
+                                        <br>    
+                                    </div>
+
+                                        <label class="col-sm-2 col-form-label" for="validationCustom04">Country</label>
+                                    <div class="col-sm-10">
+                                        
+                                        <select class="form-select" id="pais_id" required>
+                                            <option selected disabled value="">--select--</option>
+                                            
+                                        </select>
+                                        <br>
+                                    </div>
+                                        
+                                        <label class="col-sm-2 col-form-label">Estate</label>
+                                        <div class="col-sm-10">
+                  
+                                            <select class="form-select" id="estado">
+                                                <option selected>--select--</option>
+                                                <option value="1">asset</option>
+                                                <option value="0">idle</option>
+                                            </select>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" name="btnCloced" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearData()">Close</button>
+                                <br>
+                                <button name="btnAgregar" class="btn btn-primary" type="button" onclick="save()" data-bs-dismiss="modal">Agregar</button>
+                            </div>
+                        </form>
+                    </div>
+          </div>
+        </div>
+      </div>
+      
+      <table  class="table table-striped">
+        <thead>
+            <tr class="table-dark">
+              <th scope="col">Name</th>
+              <th scope="col">Code</th>
+              <th scope="col">Description</th>
+              <th scope="col">Country</th>
+              <th scope="col">State</th>
+              <th scope="col">Actions</th>
+              
+            </tr>
+        </thead>
+        <tbody class="table-group-divider" id="resultData">
+            
+        </tbody>
+    </table>
+      
+    
+</div>
+    <script src="/js/Parameter/state.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script>
+            loadPais();
+            loadData();
+    </script>
+        
+</body>
+</html>

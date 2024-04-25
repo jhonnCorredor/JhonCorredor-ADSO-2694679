@@ -1,0 +1,94 @@
+
+#iframeContainer {
+    top: 40%;
+    display: flex; 
+    flex-direction: column; 
+    min-height: calc(100vh - 50px); 
+}
+
+#contentFrame {
+    flex-grow: 1; 
+    border: none; 
+}
+.btn-secundary{
+   
+    background-color: red;
+}
+.btn-primary{
+    background-color: blue;
+}
+
+.new{
+    position: relative;
+    float: right;
+    height: 43px;
+    color: green;
+}
+
+
+#iframeContainer {
+    width: 100%;
+  
+  }
+  
+  #iframeContainer .iframe {
+    width: 100%;
+    border: none;
+  }
+  
+
+  .welcome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(../img/welcome.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .btn-close{
+    background-color: red;
+  }
+  
+  button[name="btnAgregar"]:hover {
+    /* Estilos al pasar el mouse sobre el botón */
+    background-color: #1ed30e; /* Color de fondo más oscuro */
+  }
+
+  button[name="btnCloced"]:hover{
+    background-color: red;
+  }
+
+ .ui-autocomplete{
+  z-index: 9999 !important;
+ }
+
+ .form-control1{
+  display: inline;
+  width: 92px; 
+}
+
+.container-document{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px;
+
+}
+.item--document{
+  margin-right: 25px;
+}
+
+.margin-bottom{
+  margin: 10px;
+  display: flex;
+  gap: 20px;
+}
